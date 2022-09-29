@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csharp_biblioteca
+namespace csharp_biblioteca_db
 {
     public class Document
     { 
@@ -14,9 +14,8 @@ namespace csharp_biblioteca
         public string Genre { get; set; }
         public bool isLoaned { get; set; }
         public string Position { get; set; }
-        public Person Author { get; set; }
 
-        protected Document(int code, string title, int year, string genre, string position, string author_name, string author_surname)
+        protected Document(int code, string title, int year, string genre, string position)
         {
             Code = code;
             Title = title;
@@ -24,9 +23,12 @@ namespace csharp_biblioteca
             Genre = genre;
             isLoaned = false;
             Position = position;
-            Author = new Person(author_name, author_surname);
         }
 
+        public override string ToString()
+        {
+            return $"Code: {Code} Title: {Title} Year: {Year} Genre: {Genre} isLoaned: {isLoaned} Position: {Position}";
+        }
     }
 
    

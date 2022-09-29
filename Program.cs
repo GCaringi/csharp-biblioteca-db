@@ -1,20 +1,10 @@
-﻿using System.Data.SqlClient;
+﻿using csharp_biblioteca_db;
 
-string stringConnection = "Data Source=localhost;Initial Catalog=db-library;Integrated Security=True";
+LibraryDB library = new LibraryDB("Feltrinelli");
 
-SqlConnection connection = new SqlConnection(stringConnection);
+List<Document> docs = library.GetAll();
 
-try
+foreach (Document doc in docs)
 {
-    connection.Open();
-    Console.WriteLine("Connection is open");
-}
-catch (Exception error)
-{
-    Console.WriteLine(error.Message);
-}
-finally
-{
-    connection.Close();
-    Console.WriteLine("Connection is closed");    
+    Console.WriteLine(doc);
 }
